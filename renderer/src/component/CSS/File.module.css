@@ -1,0 +1,16 @@
+.container{
+    width: min(30vw,300px);
+
+    height: 100%;
+
+    color: white;
+    background-color: black;
+    border: 1px solid grey;
+    position: relative;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    flex-shrink: 0;
+
+    resize: horizontal;
+}

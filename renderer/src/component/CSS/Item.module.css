@@ -1,0 +1,35 @@
+.container{
+    display: flex;
+    height: 25px;
+    width: 100%;
+
+    box-sizing: border-box;
+
+    
+    padding: 2.5px;
+
+    cursor: pointer;
+}
+
+.selected{
+    background-color: gray;
+}
+
+.container:hover{
+    background-color: rgb(89, 88, 88);
+}
+
+.icon{
+    height :100%;
+    margin-right: 4px;
+    pointer-events: none;
+}
+
+.itemName{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width:100%;
+    padding-right:8px;
+    pointer-events: none;
+}
