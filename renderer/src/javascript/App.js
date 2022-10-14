@@ -5,8 +5,11 @@ import styles from "./App.module.css"
 import File from "../component/File"
 import ExplorerBar from "../component/ExplorerBar";
 
+import { useUrlPath } from "../util/useUrlPath"
+
 const App = ()=>{
-    const [explorerPath,setExplorerPath] = useState(["Users","Krishna","Desktop"])
+    const [explorerPath,dispatch] = useUrlPath(["Users","Krishna","Desktop"])
+
     const dd = useRef()
 
     useEffect(()=>{
@@ -14,29 +17,13 @@ const App = ()=>{
     },[explorerPath])
 
     const insertToPath = (dirName,index)=>{
-        if(index===0){
-            return
-        }
-        
-        let temp = [...explorerPath]
-
-        if(index<explorerPath.length-1){
-            temp = temp.slice(0,index+1)
-        }
-
-        temp.push(dirName)
-
-        console.log(temp)
-
-        setExplorerPath((_)=>[...temp])
-
-        
+        dispatch({type:'insertToIndex', dirName:dirName, index:index})
     }
 
    return (
     <div className={styles.container}>
         <div className={styles.overview}>
-            <ExplorerBar explorerPath={explorerPath}/>
+            <ExplorerBar explorerPath={explorerPath} dispatch={dispatch}/>
         </div>
         <div className={styles.mainBody} ref={dd}>
             {

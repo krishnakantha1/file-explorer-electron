@@ -1,5 +1,5 @@
 .container{
-    width: min(30vw,300px);
+    width: max(min(20vw,300px),150px);
 
     height: 100%;
 
